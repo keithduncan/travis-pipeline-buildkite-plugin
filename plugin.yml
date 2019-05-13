@@ -1,0 +1,7 @@
+name: Travis Pipeline
+description: Transform a .travis.yml config into a pipeline.
+author: https://github.com/keithduncan
+requirements:
+  - travis-pipeline
+configuration:
+  properties: {}

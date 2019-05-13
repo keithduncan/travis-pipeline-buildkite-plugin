@@ -1,0 +1,5 @@
+#!/bin/bash -eu
+
+set -o pipefail
+
+travis-pipeline .travis.yml | buildkite-agent pipeline upload
