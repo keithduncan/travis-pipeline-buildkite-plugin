@@ -2,4 +2,4 @@
 
 set -o pipefail
 
-travis-pipeline .travis.yml | tee /dev/fd/2 | buildkite-agent pipeline upload --no-interpolation
+travis-pipeline .travis.yml | buildkite-agent pipeline upload --no-interpolation
