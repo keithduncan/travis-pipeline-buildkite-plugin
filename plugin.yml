@@ -7,5 +7,7 @@ configuration:
   properties:
     queue:
       type: string
+    tags:
+      type: array
   required:
     - queue
