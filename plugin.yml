@@ -4,4 +4,8 @@ author: https://github.com/keithduncan
 requirements:
   - travis-pipeline
 configuration:
-  properties: {}
+  properties:
+    queue:
+      type: string
+  required:
+    - queue

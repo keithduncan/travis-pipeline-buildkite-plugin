@@ -2,4 +2,4 @@
 
 set -o pipefail
 
-travis-pipeline .travis.yml | buildkite-agent pipeline upload --no-interpolation
+travis-pipeline --queue "${BUILDKITE_PLUGIN_TRAVIS_PIPELINE_QUEUE}" .travis.yml | buildkite-agent pipeline upload --no-interpolation
