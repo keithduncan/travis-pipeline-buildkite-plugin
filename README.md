@@ -13,11 +13,9 @@ agents for improved performance.
 steps:
   - label: ":pipeline:"
     agents:
-      queue: "ecs/agents"
-      travis-pipeline: true
+      queue: "us-east-1-agents"
     plugins:
-      - "keithduncan/travis-pipeline#v0.3":
-          queue: "ecs/agents"
-          tags:
-            - "rust:embedded=true"
+      - "keithduncan/travis-pipeline#v0.4":
+          agents:
+            - task-definition=rust-embedded
 ```

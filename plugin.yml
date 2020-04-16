@@ -5,9 +5,6 @@ requirements:
   - travis-pipeline
 configuration:
   properties:
-    queue:
-      type: string
-    tags:
+    agents:
       type: array
-  required:
-    - queue
+  required: []

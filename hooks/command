@@ -4,7 +4,7 @@ set -o pipefail
 
 args=()
 
-args+=( ".travis.yml" "--queue" "${BUILDKITE_PLUGIN_TRAVIS_PIPELINE_QUEUE}" )
+args+=( ".travis.yml" )
 
 # Copied from https://github.com/buildkite-plugins/docker-buildkite-plugin/blob/master/hooks/command
 #
@@ -32,9 +32,12 @@ plugin_read_list_into_result() {
   [[ ${#result[@]} -gt 0 ]] || return 1
 }
 
-if plugin_read_list_into_result BUILDKITE_PLUGIN_TRAVIS_PIPELINE_TAGS
+if plugin_read_list_into_result BUILDKITE_PLUGIN_TRAVIS_PIPELINE_AGENTS
 then
-  args+=( "--tags" "${result[@]}" )
+  for agent in "${result[@]}"
+  do
+    args+=( "--agent-query-rules=${agent}" )
+  done
 fi
 
 travis-pipeline "${args[@]}" | buildkite-agent pipeline upload --no-interpolation
